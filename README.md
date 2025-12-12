@@ -1,6 +1,10 @@
-# COVID-19 Hospitalization Trends Dashboard
+# Public Health Data Pipelines
 
-This full-stack web application provides interactive visualizations and analysis of COVID-19 hospitalization rates across the United States using data from the CDC’s COVID-NET surveillance system. It is designed to help identify trends and support public health decision-making by highlighting areas with high or rising hospitalization rates.
+This repository demonstrates a full-stack approach to ingesting, validating, and visualizing open public health datasets. It uses CDC COVID-NET hospitalization data as a concrete case study. Still, it is designed around reusable patterns for public-interest data pipelines: automated ingestion, schema-aware parsing, fallback preservation, and interactive analysis.
+
+The project highlights how public datasets can be made more accessible, interpretable, and resilient through modern web infrastructure.
+
+## Case Study: COVID-19 Hospitalization Trends
 
 ## Live Demo
 
@@ -79,11 +83,13 @@ Last Updated: August 11, 2025
 
 The app dynamically pulls this data and parses it for visualization. A fallback static copy (/public/fallback.json) is included for testing or offline use.
 
+Including a local fallback copy reflects a defensive design choice in response to the fragility and mutability of public data endpoints.
+
 ## Assumptions
 
 - The CDC’s CSV endpoint is always reachable and returns a consistent schema
 
-- “Automatically pulls new data” means fetches latest CSV on API or page load
+- “Automatically pulls new data” means it fetches the latest CSV on API or page load
 
 - Visualizations focus on time-series trends; maps are out of scope for now
 
@@ -95,7 +101,7 @@ The app dynamically pulls this data and parses it for visualization. A fallback 
 
 - Project future hospitalization trends using ML models
 
-- Persist latest dataset server-side and auto-refresh daily
+- Persist the latest dataset server-side and auto-refresh daily
 
 - Deploy on Vercel or similar for continuous delivery
 
